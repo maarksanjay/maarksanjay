@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gokulamm Milk</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .container { width: 80%; margin: auto; }
+        .product { margin: 20px 0; }
+        .order-form { background: #f4f4f4; padding: 20px; border-radius: 10px; }
+        input, select, button { margin: 10px; padding: 10px; width: 80%; }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Gokulamm Milk</h1>
+    <p>Your Health is Our Wealth</p>
+
+    <div class="container">
+        <h2>Our Products</h2>
+        <div class="product">🥛 Full Cream Milk - 500ml</div>
+        <div class="product">🥛 Toned Milk - 500ml</div>
+        <div class="product">🥛 Homogenized Milk - 500ml</div>
+    </div>
+
+    <div class="container order-form">
+        <h2>Order Now</h2>
+        <form id="orderForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="tel" id="phone" placeholder="Your Phone Number" required>
+            <input type="text" id="address" placeholder="Your Address" required>
+            <select id="product">
+                <option value="Full Cream Milk">Full Cream Milk</option>
+                <option value="Toned Milk">Toned Milk</option>
+                <option value="Homogenized Milk">Homogenized Milk</option>
+            </select>
+            <input type="number" id="quantity" placeholder="Quantity" required>
+            <button type="button" onclick="sendOrder()">Order on WhatsApp</button>
+        </form>
+    </div>
+
+    <script>
+        function sendOrder() {
+            let name = document.getElementById('name').value;
+            let phone = document.getElementById('phone').value;
+            let address = document.getElementById('address').value;
+            let product = document.getElementById('product').value;
+            let quantity = document.getElementById('quantity').value;
+
+            let message = `Hello, I want to order:\nName: ${name}\nPhone: ${phone}\nAddress: ${address}\nProduct: ${product}\nQuantity: ${quantity}`;
+            let whatsappUrl = `https://wa.me/6383751195?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
